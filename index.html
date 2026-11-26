@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClinicQ — লাইন নয়, টোকেন। | ক্লিনিকের জন্য টোকেন ও লাইভ লাইন অ্যাপ</title>
+<meta name="description" content="ClinicQ — ডাক্তারবাবুর চেম্বারের জন্য টোকেন ও লাইভ লাইন অ্যাপ। রোগী বাড়ি থেকে টোকেন নেন, ফোনে লাইভ দেখেন। মুর্শিদাবাদ।">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ClinicQ">
+<meta property="og:locale" content="bn_IN">
+<meta property="og:url" content="https://clinicqindia.com/">
+<meta property="og:title" content="ClinicQ — লাইন নয়, টোকেন।">
+<meta property="og:description" content="ক্লিনিক আর ডাক্তারবাবুর চেম্বারের জন্য টোকেন ও লাইভ লাইনের অ্যাপ। রোগী বাড়ি থেকে টোকেন নেন, ফোনে লাইভ দেখেন। প্রথম ৭ দিন ফ্রি — কার্ড লাগে না।">
+<meta property="og:image" content="https://clinicqindia.com/og-image.jpg">
+<meta property="og:image:secure_url" content="https://clinicqindia.com/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ClinicQ — লাইন নয়, টোকেন। ₹599 বেসিক · ₹1,299 প্রো · ৭ দিন ফ্রি">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://clinicqindia.com/og-image.jpg">
+<meta name="twitter:title" content="ClinicQ — লাইন নয়, টোকেন।">
+<meta name="twitter:description" content="চেম্বারের জন্য টোকেন ও লাইভ লাইন অ্যাপ। প্রথম ৭ দিন ফ্রি। মুর্শিদাবাদ।">
+<meta name="theme-color" content="#0b6b60">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf8f3;
+  --surface:#fffdf9;
+  --surface-2:#f4efe6;
+  --ink:#14211f;
+  --dim:#5c6b68;
+  --brand:#0b6b60;
+  --brand-dim:#0a544b;
+  --brand-soft:#e6f2ef;
+  --accent:#b3541e;
+  --accent-soft:#fbf0e6;
+  --gold:#a8822f;
+  --border:rgba(20,33,31,0.11);
+  --border-strong:rgba(20,33,31,0.2);
+  --shadow:0 1px 2px rgba(20,33,31,.04), 0 8px 24px -12px rgba(20,33,31,.18);
+  --shadow-lg:0 2px 4px rgba(20,33,31,.05), 0 24px 48px -24px rgba(20,33,31,.28);
+  --font-head:'Anek Bangla','Noto Sans Bengali','Instrument Serif',serif;
+  --font-body:'Noto Sans Bengali','DM Sans',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#101715;
+    --surface:#16201d;
+    --surface-2:#1c2724;
+    --ink:#eef3f1;
+    --dim:#9bacA7;
+    --brand:#4fd1bb;
+    --brand-dim:#7ee0ce;
+    --brand-soft:#16302c;
+    --accent:#e08a52;
+    --accent-soft:#2a1d15;
+    --gold:#d6b064;
+    --border:rgba(255,255,255,0.10);
+    --border-strong:rgba(255,255,255,0.18);
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6);
+    --shadow-lg:0 2px 4px rgba(0,0,0,.35), 0 24px 48px -24px rgba(0,0,0,.75);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(11,107,96,.07), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(179,84,30,.05), transparent 55%),
+    var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.3;margin:0;letter-spacing:-0.01em}
+p{margin:0}
+a{color:var(--brand);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{display:flex;align-items:baseline;gap:10px}
+.logo b{font-family:var(--font-head);font-size:24px;color:var(--brand);letter-spacing:-0.02em}
+.logo span{font-size:12.5px;color:var(--dim)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-size:14.5px;color:var(--dim);font-weight:500}
+.nav-links a:hover{color:var(--brand)}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 20px;border-radius:10px;font-weight:600;font-size:15px;
+  background:var(--brand);color:#fff;border:1px solid transparent;
+  transition:transform .15s ease, background .15s ease;
+}
+.btn:hover{background:var(--brand-dim);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--border-strong)}
+.btn.ghost:hover{background:var(--surface-2);transform:none}
+.lbl-short{display:none}
+@media (prefers-color-scheme: dark){ .btn{color:#0b1a17} }
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 64px;display:grid;grid-template-columns:1.25fr .85fr;gap:56px;align-items:start}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:100px;
+  background:var(--brand-soft);color:var(--brand-dim);font-size:13px;font-weight:600;margin-bottom:22px}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--brand);display:block}
+h1.hero-title{font-size:clamp(38px,5.4vw,62px);line-height:1.16;margin-bottom:20px}
+h1.hero-title em{font-style:normal;color:var(--brand)}
+.lede{font-size:18.5px;color:var(--dim);max-width:46ch;margin-bottom:30px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.trust{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--dim)}
+.trust span{display:flex;align-items:center;gap:7px}
+.trust svg{flex:none;color:var(--brand)}
+
+/* price snapshot card */
+.snap{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px;box-shadow:var(--shadow-lg)}
+.snap .mono{display:block;margin-bottom:14px}
+.snap-row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px dashed var(--border)}
+.snap-row:last-of-type{border-bottom:none}
+.snap-row b{font-size:20px;font-family:var(--font-head)}
+.snap-row small{color:var(--dim);font-size:12.5px;display:block}
+.snap-note{margin-top:16px;font-size:12.5px;color:var(--dim);background:var(--surface-2);padding:10px 12px;border-radius:8px}
+
+/* ---------- sections ---------- */
+section{padding:56px 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:28px;border-bottom:1px solid var(--border);padding-bottom:14px}
+.sec-head h2{font-size:clamp(24px,3vw,32px)}
+.sec-head .mono{white-space:nowrap}
+
+.problems{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.problem{background:var(--accent-soft);border:1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+  border-radius:12px;padding:20px;font-size:15.5px;position:relative;padding-left:44px}
+.problem::before{content:"✕";position:absolute;left:18px;top:19px;color:var(--accent);font-weight:700}
+
+.ways{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.way{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
+.way .num{font-family:var(--font-mono);font-size:11px;color:var(--brand);letter-spacing:.1em;display:block;margin-bottom:10px}
+.way h3{font-size:17px;margin-bottom:8px}
+.way p{font-size:14px;color:var(--dim);line-height:1.65}
+
+.gets{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px}
+.get{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;padding:9px 0;border-bottom:1px solid var(--border)}
+.get svg{flex:none;margin-top:5px;color:var(--brand)}
+
+.adband{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
+  background:var(--brand-soft);border-radius:16px;padding:28px 30px;border:1px solid color-mix(in srgb,var(--brand) 20%,transparent)}
+.adband .big{font-family:var(--font-head);font-size:clamp(34px,5vw,48px);color:var(--brand-dim);line-height:1;white-space:nowrap}
+.adband p{font-size:15px;color:var(--ink);max-width:62ch}
+
+/* pricing */
+.price-table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;box-shadow:var(--shadow);font-size:15px}
+.price-table th{background:var(--surface-2);text-align:left;padding:13px 16px;font-size:12.5px;
+  font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:500}
+.price-table td{padding:16px;border-top:1px solid var(--border);vertical-align:top}
+.price-table td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.price-table tr.hot td{background:var(--brand-soft)}
+.price-table .plan{font-weight:600;font-size:16px}
+.price-table .plan small{display:block;font-weight:400;color:var(--dim);font-size:12.5px;margin-top:2px}
+.price-note{margin-top:14px;font-size:13.5px;color:var(--dim);display:flex;gap:18px;flex-wrap:wrap}
+
+/* faq */
+details{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px}
+details summary{cursor:pointer;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";color:var(--brand);font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:12px;font-size:15px;color:var(--dim)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;box-shadow:var(--shadow)}
+.contact-card h3{font-size:22px;margin-bottom:6px}
+.contact-card p{color:var(--dim);font-size:15px;margin-bottom:20px}
+.contact-lines{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+.contact-line{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.contact-line svg{flex:none;margin-top:4px;color:var(--brand)}
+.contact-line b{display:block;font-size:15.5px}
+.contact-line small{color:var(--dim);font-size:12.5px}
+
+/* policy */
+.policy{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px 26px;margin-bottom:14px}
+.policy h3{font-size:19px;margin-bottom:10px}
+.policy p{font-size:14.5px;color:var(--dim);margin-bottom:10px}
+.policy ul{margin:0 0 10px;padding-left:20px;font-size:14.5px;color:var(--dim)}
+.policy li{margin-bottom:6px}
+.policy .updated{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+
+footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13.5px;color:var(--dim)}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:34px;padding:48px 0}
+  .problems,.ways{grid-template-columns:1fr 1fr}
+  .gets{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .adband{grid-template-columns:1fr;gap:14px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .nav{height:auto;min-height:60px;padding:8px 0;gap:10px}
+  .logo span{display:none}
+  .logo b{font-size:21px}
+  .nav .btn{padding:9px 13px;font-size:13.5px;white-space:nowrap}
+  .lbl-long{display:none}
+  .lbl-short{display:inline}
+  .problems,.ways{grid-template-columns:1fr}
+  .price-table{font-size:13.5px}
+  .price-table th,.price-table td{padding:11px 10px}
+  .wrap{padding:0 18px}
+}
+@media (prefers-reduced-motion: no-preference){
+  .fade{opacity:0;transform:translateY(10px);animation:fadeUp .6s ease forwards}
+  .fade:nth-child(2){animation-delay:.06s}
+  .fade:nth-child(3){animation-delay:.12s}
+  .fade:nth-child(4){animation-delay:.18s}
+  @keyframes fadeUp{to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><b>ClinicQ</b><span>লাইন নয়, টোকেন।</span></div>
+    <nav class="nav-links">
+      <a href="#how">কীভাবে কাজ করে</a>
+      <a href="#price">দাম</a>
+      <a href="#faq">প্রশ্ন</a>
+      <a href="#contact">যোগাযোগ</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a class="btn ghost" href="/doctor/login" target="_top" style="padding:10px 16px;font-size:14px">Staff login</a>
+      <a class="btn" href="https://wa.me/919647360882" target="_blank" rel="noopener"><span class="lbl-long">হোয়াটসঅ্যাপে কথা বলুন</span><span class="lbl-short">হোয়াটসঅ্যাপ</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="wrap hero">
+  <div>
+    <div class="eyebrow fade"><i></i> মুর্শিদাবাদে চালু · প্রথম ৭ দিন ফ্রি</div>
+    <h1 class="hero-title fade">লাইন নয়, <em>টোকেন।</em></h1>
+    <p class="lede fade">ক্লিনিক আর ডাক্তারবাবুর চেম্বারের জন্য টোকেন ও লাইভ লাইনের অ্যাপ। রোগী বাড়ি থেকে টোকেন নেন, ফোনে লাইভ দেখেন আগে কতজন আছেন, আর পালা কাছে এলে তবেই চেম্বারে আসেন।</p>
+    <div class="hero-actions fade">
+      <a class="btn" href="tel:+919647360882">ফোন করুন · +91 96473 60882</a>
+      <a class="btn ghost" href="#price">দাম দেখুন</a>
+    </div>
+    <div class="trust">
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> রোগীর কোনো অ্যাপ লাগে না</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> কার্ড বা অগ্রিম লাগে না</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> কোনো লক-ইন নেই</span>
+    </div>
+  </div>
+
+  <aside class="snap fade">
+    <span class="mono">মাসিক দাম</span>
+    <div class="snap-row">
+      <div><b>₹299</b><small>ফাউন্ডিং · প্রথম ২০টি ক্লিনিক, ৩ মাস</small></div>
+      <div style="text-align:right"><small>দিনে</small><b style="font-size:16px">₹10</b></div>
+    </div>
+    <div class="snap-row">
+      <div><b>₹599</b><small>বেসিক · একজন ডাক্তার, একটি চেম্বার</small></div>
+    </div>
+    <div class="snap-row">
+      <div><b>₹1,299</b><small>প্রো · একজন ডাক্তার, ৩টি চেম্বার</small></div>
+    </div>
+    <div class="snap-row">
+      <div><b>+₹499</b><small>SMS অ্যাড-অন · ১,০০০ SMS</small></div>
+    </div>
+    <div class="snap-note">সব দামের উপর ১৮% GST আলাদা। বছরে একসাথে দিলে ১০ মাসের দামে ১২ মাস।</div>
+  </aside>
+</div>
+
+<section class="wrap" id="problem">
+  <div class="sec-head">
+    <h2>রোজকার সমস্যা</h2>
+    <span class="mono">The daily problem</span>
+  </div>
+  <div class="problems">
+    <div class="problem fade">সকাল থেকে ওয়েটিং রুম ভর্তি, রোগী ঘণ্টার পর ঘণ্টা বসে থাকেন</div>
+    <div class="problem fade">কম্পাউন্ডার সারাদিন “আমার নম্বর কখন আসবে?” প্রশ্নের উত্তর দেন</div>
+    <div class="problem fade">ফলো-আপের রোগী ভুলে যান, আর ফিরে আসেন না</div>
+  </div>
+</section>
+
+<section class="wrap" id="how">
+  <div class="sec-head">
+    <h2>রোগী কীভাবে টোকেন নেন</h2>
+    <span class="mono">Four ways in</span>
+  </div>
+  <div class="ways">
+    <div class="way fade"><span class="num">01</span><h3>QR বা লিঙ্কে</h3><p>কাউন্টারে QR স্ট্যান্ড বা হোয়াটসঅ্যাপে লিঙ্ক। রোগীকে কোনো অ্যাপ নামাতে হয় না।</p></div>
+    <div class="way fade"><span class="num">02</span><h3>মিসড কলে</h3><p>সাধারণ বোতাম-ফোন থেকেও। টোকেন নম্বর SMS-এ চলে আসে। (মিসড কল + SMS অ্যাড-অনের সঙ্গে)</p></div>
+    <div class="way fade"><span class="num">03</span><h3>ফোন করে</h3><p>গ্রামের রোগী ফোন করলে কম্পাউন্ডার কয়েক সেকেন্ডে টোকেন দেন।</p></div>
+    <div class="way fade"><span class="num">04</span><h3>চেম্বারে এসে</h3><p>কাউন্টারে নাম আর মোবাইল — সঙ্গে সঙ্গে টোকেন।</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-head">
+    <h2>ক্লিনিক কী পায়</h2>
+    <span class="mono">What the clinic gets</span>
+  </div>
+  <div class="gets">
+    <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>ফোনে লাইভ লাইন — রোগী জানেন কখন বাড়ি থেকে বেরোবেন</span></div>
+    <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>ওয়েটিং রুমের টিভিতে চলতি টোকেন নম্বর আর ডাক</span></div>
+    <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>রাতের হিসাব — কতজন রোগী, ক্যাশ আর UPI, হোয়াটসঅ্যাপে</span></div>
+    <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>ফলো-আপ মনে করানো এক ট্যাপে হোয়াটসঅ্যাপে</span></div>
+    <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>প্রেসক্রিপশন সোজা রোগীর ফোনে</span></div>
+    <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>বাংলা, হিন্দি, ইংরেজি — যেকোনো অ্যান্ড্রয়েড ফোনে চলে</span></div>
+    <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>সহজ মোড — কম্পাউন্ডার দু’টো বোতামেই শিখে যান</span></div>
+    <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>রোগীর তথ্য নিরাপদ — শুধু আপনার ক্লিনিকের, বিক্রি হয় না</span></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="adband">
+    <div class="big">১৫% + ১০%</div>
+    <p><b>টিভি থেকে আয়।</b> চাইলে ওয়েটিং রুমের টিভিতে কাছের দোকানের বিজ্ঞাপন চলবে — ওষুধ, ল্যাব বা হাসপাতালের বিজ্ঞাপন কখনো নয়। বিজ্ঞাপন থেকে যা আয় হবে তার ১৫% ডাক্তারবাবুর, ১০% যে ক্লিনিকে বসেন তার, পরের বিলে ছাড় হিসেবে। কত টাকা, তা প্রতি মাসের রিপোর্টে দেখতে পাবেন। বিজ্ঞাপন ডিফল্টে বন্ধ।</p>
+  </div>
+</section>
+
+<section class="wrap" id="price">
+  <div class="sec-head">
+    <h2>দাম</h2>
+    <span class="mono">Pricing · ex-GST</span>
+  </div>
+  <table class="price-table">
+    <thead>
+      <tr><th>প্ল্যান</th><th>কী থাকে</th><th>GST ছাড়া</th><th>GST সহ (১৮%)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="hot">
+        <td class="plan">ফাউন্ডিং অফার<small>প্রথম ২০টি ক্লিনিক, ৩ মাস</small></td>
+        <td>বেসিকের সবকিছু · সেটআপ ফ্রি · দিনে মাত্র ₹10</td>
+        <td class="num">₹299 /মাস</td>
+        <td class="num">₹352.82</td>
+      </tr>
+      <tr>
+        <td class="plan">বেসিক<small>একজন ডাক্তার, একটি চেম্বার</small></td>
+        <td>টোকেন কিউ, ওয়েটিং রুমের টিভি স্ক্রিন, ফলো-আপ রিমাইন্ডার, প্রেসক্রিপশন</td>
+        <td class="num">₹599 /মাস</td>
+        <td class="num">₹706.82</td>
+      </tr>
+      <tr>
+        <td class="plan">প্রো<small>একজন ডাক্তার, ৩টি চেম্বার</small></td>
+        <td>একটাই লাইন, তিন জায়গা থেকে · পুরো হিসাব</td>
+        <td class="num">₹1,299 /মাস</td>
+        <td class="num">₹1,532.82</td>
+      </tr>
+      <tr>
+        <td class="plan">মিসড কল + SMS<small>ঐচ্ছিক অ্যাড-অন</small></td>
+        <td>মিসড-কল নম্বর + ১,০০০ টোকেন SMS</td>
+        <td class="num">+₹499 /মাস</td>
+        <td class="num">₹588.82</td>
+      </tr>
+      <tr>
+        <td class="plan">বাৎসরিক (বেসিক)<small>১০ মাসের দামে ১২ মাস</small></td>
+        <td>একবারে এক বছরের পেমেন্ট</td>
+        <td class="num">₹5,990 /বছর</td>
+        <td class="num">₹7,068.20</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="price-note">
+    <span>প্রথম ৭ দিন একদম ফ্রি — কার্ড বা অগ্রিম লাগে না।</span>
+    <span>মাসিক প্ল্যান, কোনো লক-ইন নেই।</span>
+    <span>GSTIN থাকলে ১৮% GST ইনপুট ক্রেডিট হিসেবে ফেরত পাওয়া যায়।</span>
+  </div>
+</section>
+
+<section class="wrap" id="faq">
+  <div class="sec-head">
+    <h2>সাধারণ প্রশ্ন</h2>
+    <span class="mono">FAQ</span>
+  </div>
+  <details><summary>রোগীকে অ্যাপ নামাতে হবে?</summary><p>না। QR স্ক্যান করলেই ব্রাউজারে টোকেন খুলে যায়। শুধু নাম আর মোবাইল নম্বর লাগে, বাকিটা ঐচ্ছিক।</p></details>
+  <details><summary>কোন ফোনে চলে?</summary><p>যেকোনো অ্যান্ড্রয়েড ফোনে। আলাদা ট্যাবলেট কেনার দরকার নেই — ক্লিনিকের নিজের টিভিতেই টোকেন স্ক্রিন চলবে।</p></details>
+  <details><summary>৭ দিন ফ্রি কীভাবে কাজ করে?</summary><p>সেটআপ করে দিই, সাত দিন কোনো টাকা লাগে না, কার্ডও লাগে না। ছয় নম্বর দিনে দেখানো হয় সপ্তাহের রিপোর্ট, তারপর UPI AutoPay চালু হয়।</p></details>
+  <details><summary>বন্ধ করতে চাইলে?</summary><p>মাসিক প্ল্যান, কোনো লক-ইন নেই। যে মাসের দাম দেওয়া হয়েছে সেই মাস শেষে বন্ধ হয়ে যাবে।</p></details>
+</section>
+
+<section class="wrap" id="contact">
+  <div class="sec-head">
+    <h2>যোগাযোগ</h2>
+    <span class="mono">Contact</span>
+  </div>
+  <div class="contact">
+    <div class="contact-card">
+      <h3>কাল থেকেই লাইন নয়, টোকেন?</h3>
+      <p>সেটআপ আমরাই করে দেব। বেরহামপুরে একদিনে চেম্বার চালু করে দিতে পারি।</p>
+      <a class="btn" href="https://wa.me/919647360882" target="_blank" rel="noopener">হোয়াটসঅ্যাপে লিখুন</a>
+      <div class="contact-lines">
+        <div class="contact-line">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+          <div><b>+91 96473 60882</b><small>ফোন ও হোয়াটসঅ্যাপ</small></div>
+        </div>
+        <div class="contact-line">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          <div><b>hello@clinicqindia.com</b><small>সাধারণ যোগাযোগ</small></div>
+        </div>
+        <div class="contact-line">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          <div><b>billing@clinicqindia.com</b><small>বিল, ইনভয়েস ও GST</small></div>
+        </div>
+        <div class="contact-line">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+          <div><b>GSTIN 19AQNPA1807A1ZD</b><small>Kazi Parvez Anjum, prop. ClinicQ · ইনপুট ক্রেডিট পাওয়া যায়</small></div>
+        </div>
+        <div class="contact-line">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><b>মহম্মদপুর, মুর্শিদাবাদ</b><small>পশ্চিমবঙ্গ · পিন ৭৪২১২১</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>সেটআপে কী কী লাগে</h3>
+      <p>চেম্বারে চালু করতে যা দরকার, তার পুরোটা আমরাই করি।</p>
+      <div class="gets" style="grid-template-columns:1fr">
+        <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>কাউন্টারের QR স্ট্যান্ড</span></div>
+        <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>ওয়েটিং রুমের টিভিতে স্ক্রিন</span></div>
+        <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>সেটআপের দিন ও পরের দুই দিনে ভিজিট, পাঁচ নম্বর দিনে ফোন</span></div>
+        <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>মিসড-কল নম্বর আর SMS সেটআপ</span></div>
+        <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>প্রথম সপ্তাহে প্রতিদিন ফলো-আপ</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="policies">
+  <div class="sec-head">
+    <h2>শর্তাবলী ও নীতি</h2>
+    <span class="mono">Terms · Privacy · Refunds</span>
+  </div>
+
+  <div class="policy" id="terms">
+    <span class="updated">সর্বশেষ হালনাগাদ · ২৪ নভেম্বর ২০২৬</span>
+    <h3>ব্যবহারের শর্তাবলী</h3>
+    <p>ClinicQ একটি টোকেন ও লাইভ লাইন ব্যবস্থাপনা সেবা, যা Kazi Parvez Anjum (prop. ClinicQ) পরিচালনা করেন — মহম্মদপুর, মুর্শিদাবাদ থেকে। এই সেবা দুই ধরনের ব্যবহারকারীর জন্য — ক্লিনিক (ডাক্তার, রিসেপশন ও স্টাফ) এবং রোগী, যিনি QR বা লিঙ্কে টোকেন নেন।</p>
+    <ul>
+      <li>ClinicQ চিকিৎসা সেবা দেয় না, কোনো পরামর্শ দেয় না, এবং ডাক্তারবাবুর ক্লিনিক্যাল সিদ্ধান্তের বিকল্প নয়।</li>
+      <li>ক্লিনিক অ্যাকাউন্ট খুললে ক্লিনিক নিজের লগইন ও পাসওয়ার্ড সুরক্ষিত রাখবেন। ক্লিনিকের হয়ে তৈরি রোগীর তথ্যের দায়িত্ব ক্লিনিকের।</li>
+      <li>সাবস্ক্রিপশন মাসিক। পরিশোধ না হলে সেবা পরের চক্রে বন্ধ হতে পারে। রোগীর চলতি লাইন কখনো বন্ধ করা হয় না।</li>
+      <li>সেবার ব্যবহারে কোনো বেআইনি কাজ, ভুয়া টোকেন বা অন্য রোগীর তথ্য দেখা নিষিদ্ধ।</li>
+      <li>ClinicQ আগাম নোটিশ দিয়ে সেবার ফিচার বা দাম বদলাতে পারে। চলতি মাসের জন্য আগের দামই প্রযোজ্য।</li>
+    </ul>
+    <p>বিল ও ইনভয়েস জারি করে <b>Kazi Parvez Anjum</b>, prop. ClinicQ, মহম্মদপুর, মুর্শিদাবাদ, পশ্চিমবঙ্গ ৭৪২১২১ · GSTIN 19AQNPA1807A1ZD।</p>
+  </div>
+
+  <div class="policy" id="privacy">
+    <span class="updated">সর্বশেষ হালনাগাদ · ২৪ নভেম্বর ২০২৬</span>
+    <h3>গোপনীয়তা নীতি</h3>
+    <p>রোগীর তথ্য ক্লিনিকের, আমাদের নয়। আমরা যা সংগ্রহ করি:</p>
+    <ul>
+      <li><b>রোগীর কাছ থেকে:</b> নাম, মোবাইল নম্বর, এবং ক্লিনিকের চাইলে বয়স ও লিঙ্গ — টোকেন দেওয়ার জন্য।</li>
+      <li><b>ক্লিনিকের কাছ থেকে:</b> ডাক্তারের নাম, চেম্বারের ঠিকানা, ফোন, এবং বিলের জন্য GSTIN (থাকলে)।</li>
+      <li><b>স্বয়ংক্রিয়ভাবে:</b> সেবা চালানোর জন্য প্রয়োজনীয় লগ ও ডিভাইস তথ্য।</li>
+    </ul>
+    <p>আমরা রোগীর তথ্য বিক্রি করি না, বিজ্ঞাপনদাতাকে দিই না, এবং ক্লিনিকের বাইরে কারও সঙ্গে ভাগ করি না — শুধুমাত্র আইনি বাধ্যবাধকতা ছাড়া। বিজ্ঞাপন কেবল দোকানের নাম ও ছবি দেখায়, কোনো রোগীর তথ্য নয়। ক্লিনিক সেবা ছাড়লে অনুরোধে তাদের সব তথ্য ফেরত দেওয়া হয়; অনুরোধ না এলে অ্যাকাউন্ট বন্ধের ৯০ দিন পরে তথ্য মুছে ফেলা হয়। কোনো প্রশ্নে লিখুন hello@clinicqindia.com।</p>
+  </div>
+
+  <div class="policy" id="refund">
+    <span class="updated">সর্বশেষ হালনাগাদ · ২৪ নভেম্বর ২০২৬</span>
+    <h3>বাতিল ও ফেরত নীতি</h3>
+    <ul>
+      <li><b>৭ দিনের ফ্রি ট্রায়াল:</b> এই সময়ে কোনো টাকা কাটা হয় না। কার্ড বা অগ্রিম লাগে না।</li>
+      <li><b>মাসিক প্ল্যান:</b> যখন খুশি বাতিল করা যায়, কোনো লক-ইন নেই। বাতিল করলে যে মাসের দাম দেওয়া হয়েছে সেই মাসের শেষ পর্যন্ত সেবা চালু থাকে।</li>
+      <li><b>বাৎসরিক প্ল্যান:</b> এক বছরের পেমেন্ট ফেরতযোগ্য নয়, তবে বেসিক থেকে প্রো-তে আপগ্রেড করা যায় (পার্থক্য দিয়ে)।</li>
+      <li><b>ভুল কাটা বা দ্বিগুণ কাটা:</b> জানালে ৭ কর্মদিবসের মধ্যে সম্পূর্ণ ফেরত। এর বাইরে সাধারণত টাকা ফেরত দেওয়া হয় না — বাতিল করলে পরের মাস থেকে আর কাটা হয় না, এটাই মূল সুরক্ষা।</li>
+      <li><b>সেবা বন্ধ হলে:</b> আমাদের দিক থেকে সেবা বন্ধ হলে অবশিষ্ট সময়ের অনুপাতে ফেরত দেওয়া হয়।</li>
+    </ul>
+    <p>ফেরতের অনুরোধ billing@clinicqindia.com অথবা +91 96473 60882-এ জানান। ফেরত আসল পেমেন্ট পদ্ধতিতেই (UPI AutoPay) ফেরত যায়।</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <b style="font-family:var(--font-head);font-size:18px;color:var(--brand)">ClinicQ</b><br>
+      মহম্মদপুর, মুর্শিদাবাদ, পশ্চিমবঙ্গ ৭৪২১২১ · hello@clinicqindia.com · +91 96473 60882<br>
+      Kazi Parvez Anjum, prop. ClinicQ<br>
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.04em">GSTIN 19AQNPA1807A1ZD</span>
+    </div>
+    <div class="foot-links">
+      <a href="#terms">শর্তাবলী</a>
+      <a href="#privacy">গোপনীয়তা</a>
+      <a href="#refund">ফেরত নীতি</a>
+      <a href="#contact">যোগাযোগ</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
