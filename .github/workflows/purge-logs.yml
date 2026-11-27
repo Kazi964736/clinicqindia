@@ -1,0 +1,68 @@
+name: ClinicQ api log retention
+
+# Daily, 03:30 IST (22:00 UTC previous day).
+# Deletes only the log actions that are safe to discard. Audit-relevant actions
+# are never deleted by this job.
+
+on:
+  schedule:
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Delete rows older than this many days'
+        required: false
+        default: '90'
+      dry_run:
+        description: 'Count only, delete nothing (true/false)'
+        required: false
+        default: 'false'
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call purge-api-log
+        env:
+          APPER_API_KEY: ${{ secrets.APPER_API_KEY }}
+          APPER_PROJECT_ID: ${{ secrets.APPER_PROJECT_ID }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          DAYS: ${{ github.event.inputs.days || '90' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          set -euo pipefail
+          URL="https://api.apper.io/v1/functions/${APPER_PROJECT_ID}/purge-api-log"
+          BODY=$(jq -nc --argjson days "$DAYS" --argjson dry "$DRY_RUN" '{days:$days, dryRun:$dry}')
+          echo "request: ${BODY}"
+
+          HTTP=$(curl -sS -o response.json -w '%{http_code}' \
+            -X POST "$URL" \
+            -H "Authorization: ${APPER_API_KEY}" \
+            -H "X-Cron-Secret: ${CRON_SECRET}" \
+            -H 'Content-Type: application/json' \
+            -d "$BODY")
+
+          echo "--- HTTP ${HTTP} ---"
+          cat response.json
+          if [ "$HTTP" != "200" ]; then
+            echo "::error::purge-api-log returned HTTP ${HTTP}"
+            exit 1
+          fi
+
+          jq -c '.value // .' response.json > body.json
+          {
+            echo "### ClinicQ api log retention"
+            echo ""
+            echo '```json'
+            jq . body.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: purge-${{ github.run_id }}
+          path: |
+            response.json
+            body.json
+          retention-days: 90
