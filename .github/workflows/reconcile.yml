@@ -1,0 +1,72 @@
+name: ClinicQ ad reconciliation
+
+# Weekly, Monday 03:00 IST (Sunday 21:30 UTC).
+# Calls reconcile-ad-slots and fails the run if any issue array is non-empty,
+# so GitHub emails you and the job shows red in the Actions tab.
+
+on:
+  schedule:
+    - cron: '30 21 * * 0'
+  workflow_dispatch: {}
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call reconcile-ad-slots
+        env:
+          APPER_API_KEY: ${{ secrets.APPER_API_KEY }}
+          APPER_PROJECT_ID: ${{ secrets.APPER_PROJECT_ID }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          set -euo pipefail
+          URL="https://api.apper.io/v1/functions/${APPER_PROJECT_ID}/reconcile-ad-slots"
+          HTTP=$(curl -sS -o response.json -w '%{http_code}' \
+            -X POST "$URL" \
+            -H "Authorization: ${APPER_API_KEY}" \
+            -H "X-Cron-Secret: ${CRON_SECRET}" \
+            -H 'Content-Type: application/json' \
+            -d '{}')
+          echo "--- HTTP ${HTTP} ---"
+          cat response.json
+          if [ "$HTTP" != "200" ]; then
+            echo "::error::reconcile-ad-slots returned HTTP ${HTTP}"
+            exit 1
+          fi
+
+      - name: Summarise
+        id: summary
+        run: |
+          set -euo pipefail
+          # Some functions wrap the payload in {ok,value}; unwrap if present.
+          jq -c '.value // .' response.json > body.json
+
+          TOTAL=$(jq '[to_entries[] | select(.value|type=="array") | (.value|length)] | add // 0' body.json)
+          echo "total_issues=${TOTAL}" >> "$GITHUB_OUTPUT"
+
+          echo "### ClinicQ reconciliation" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Issues found: **${TOTAL}**" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          jq -r 'to_entries[] | select(.value|type=="array" and (.value|length>0)) | "- \(.key): \(.value|length)"' body.json >> "$GITHUB_STEP_SUMMARY" || true
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          jq . body.json >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: reconcile-${{ github.run_id }}
+          path: |
+            response.json
+            body.json
+          retention-days: 90
+
+      - name: Fail if issues found
+        if: steps.summary.outputs.total_issues != '0'
+        run: |
+          echo "::error::Reconciliation found ${{ steps.summary.outputs.total_issues }} issue(s). See the job summary."
+          exit 1
