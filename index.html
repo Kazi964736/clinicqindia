@@ -11,17 +11,16 @@
 <meta property="og:url" content="https://clinicqindia.com/">
 <meta property="og:title" content="ClinicQ — লাইন নয়, টোকেন।">
 <meta property="og:description" content="ক্লিনিক আর ডাক্তারবাবুর চেম্বারের জন্য টোকেন ও লাইভ লাইনের অ্যাপ। রোগী বাড়ি থেকে টোকেন নেন, ফোনে লাইভ দেখেন। প্রথম ৭ দিন ফ্রি — কার্ড লাগে না।">
-<meta property="og:image" content="https://clinicqindia.com/og-image.jpg">
-<meta property="og:image:secure_url" content="https://clinicqindia.com/og-image.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ClinicQ — লাইন নয়, টোকেন। ₹599 বেসিক · ₹1,299 প্রো · ৭ দিন ফ্রি">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://clinicqindia.com/og-image.jpg">
+
 <meta name="twitter:title" content="ClinicQ — লাইন নয়, টোকেন।">
 <meta name="twitter:description" content="চেম্বারের জন্য টোকেন ও লাইভ লাইন অ্যাপ। প্রথম ৭ দিন ফ্রি। মুর্শিদাবাদ।">
 <meta name="theme-color" content="#0b6b60">
+<meta property="og:image" content="https://clinicqindia.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ClinicQ — লাইন নয়, টোকেন। ক্লিনিকের জন্য টোকেন ও লাইভ লাইন অ্যাপ">
+<meta name="twitter:image" content="https://clinicqindia.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -42,7 +41,7 @@
   --border-strong:rgba(20,33,31,0.2);
   --shadow:0 1px 2px rgba(20,33,31,.04), 0 8px 24px -12px rgba(20,33,31,.18);
   --shadow-lg:0 2px 4px rgba(20,33,31,.05), 0 24px 48px -24px rgba(20,33,31,.28);
-  --font-head:'Anek Bangla','Noto Sans Bengali','Instrument Serif',serif;
+  --font-head:'Anek Bangla','Noto Sans Bengali',serif;
   --font-body:'Noto Sans Bengali','DM Sans',system-ui,sans-serif;
   --font-mono:'JetBrains Mono',ui-monospace,monospace;
 }
@@ -52,7 +51,7 @@
     --surface:#16201d;
     --surface-2:#1c2724;
     --ink:#eef3f1;
-    --dim:#9bacA7;
+    --dim:#9baca7;
     --brand:#4fd1bb;
     --brand-dim:#7ee0ce;
     --brand-soft:#16302c;
@@ -79,7 +78,7 @@ body{
   line-height:1.75;
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.3;margin:0;letter-spacing:-0.01em}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.3;margin:0}
 p{margin:0}
 a{color:var(--brand);text-decoration:none}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
@@ -88,6 +87,7 @@ a{color:var(--brand);text-decoration:none}
 /* ---------- header ---------- */
 header{
   position:sticky;top:0;z-index:50;
+  background:var(--bg);
   background:color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
@@ -207,7 +207,9 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
   .problems,.ways{grid-template-columns:1fr 1fr}
   .gets{grid-template-columns:1fr}
   .contact{grid-template-columns:1fr}
-  .nav-links{display:none}
+  .nav-links{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;white-space:nowrap;-webkit-mask-image:linear-gradient(to right,#000 85%,transparent);mask-image:linear-gradient(to right,#000 85%,transparent)}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{font-size:13.5px}
   .adband{grid-template-columns:1fr;gap:14px}
 }
 @media (max-width:560px){
@@ -244,7 +246,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
       <a href="#contact">যোগাযোগ</a>
     </nav>
     <div style="display:flex;gap:10px;align-items:center">
-      <a class="btn ghost" href="/doctor/login" target="_top" style="padding:10px 16px;font-size:14px">Staff login</a>
+      <a class="btn ghost" href="https://clinicq-native.apper.so/doctor/login" target="_blank" rel="noopener" style="padding:10px 16px;font-size:14px">Staff login</a>
       <a class="btn" href="https://wa.me/919647360882" target="_blank" rel="noopener"><span class="lbl-long">হোয়াটসঅ্যাপে কথা বলুন</span><span class="lbl-short">হোয়াটসঅ্যাপ</span></a>
     </div>
   </div>
@@ -271,23 +273,29 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
   <aside class="snap fade">
     <span class="mono">মাসিক দাম</span>
     <div class="snap-row">
-      <div><b>₹299</b><small>ফাউন্ডিং · প্রথম ২০টি ক্লিনিক, ৩ মাস</small></div>
-      <div style="text-align:right"><small>দিনে</small><b style="font-size:16px">₹10</b></div>
+      <div><b>₹599</b><small>ফাউন্ডিং · প্রথম ১০টি ক্লিনিক, ৩ মাস</small></div>
+      <div style="text-align:right"><small>দিনে</small><b style="font-size:16px">₹20</b></div>
     </div>
     <div class="snap-row">
-      <div><b>₹599</b><small>বেসিক · একজন ডাক্তার, একটি চেম্বার</small></div>
+      <div><b>₹999</b><small>বেসিক · একজন ডাক্তার, একটি চেম্বার · ১,০০০ SMS</small></div>
     </div>
     <div class="snap-row">
-      <div><b>₹1,299</b><small>প্রো · একজন ডাক্তার, ৩টি চেম্বার</small></div>
+      <div><b>₹1,999</b><small>প্রো · একজন ডাক্তার, ৩টি চেম্বার · ৩,০০০ SMS</small></div>
     </div>
     <div class="snap-row">
-      <div><b>+₹499</b><small>SMS অ্যাড-অন · ১,০০০ SMS</small></div>
+      <div><b>₹2,999</b><small>পলি-ক্লিনিক · ৫ জন ডাক্তার, ৫,০০০ SMS</small></div>
+    </div>
+    <div class="snap-row">
+      <div><b>+₹399</b><small>মিসড-কল নম্বর · SMS সব প্ল্যানেই অন্তর্ভুক্ত</small></div>
+    </div>
+    <div class="snap-row">
+      <div><b>+₹199</b><small>প্রতি অতিরিক্ত ১,০০০ SMS (+GST) · বেসিকে ১,০০০ ও প্রো-তে ৩,০০০ SMS ফ্রি</small></div>
     </div>
     <div class="snap-note">সব দামের উপর ১৮% GST আলাদা। বছরে একসাথে দিলে ১০ মাসের দামে ১২ মাস।</div>
   </aside>
 </div>
 
-<section class="wrap" id="problem">
+<section class="wrap">
   <div class="sec-head">
     <h2>রোজকার সমস্যা</h2>
     <span class="mono">The daily problem</span>
@@ -325,6 +333,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
     <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>প্রেসক্রিপশন সোজা রোগীর ফোনে</span></div>
     <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>বাংলা, হিন্দি, ইংরেজি — যেকোনো অ্যান্ড্রয়েড ফোনে চলে</span></div>
     <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>সহজ মোড — কম্পাউন্ডার দু’টো বোতামেই শিখে যান</span></div>
+    <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span><b>পলি-ক্লিনিক:</b> এক চেম্বারে ৫ জন ডাক্তার পর্যন্ত — প্রত্যেকের আলাদা টোকেন নম্বর, কিন্তু একটাই কিউ আর একটাই টিভি স্ক্রিন</span></div>
     <div class="get"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>রোগীর তথ্য নিরাপদ — শুধু আপনার ক্লিনিকের, বিক্রি হয় না</span></div>
   </div>
 </section>
@@ -339,47 +348,55 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
 <section class="wrap" id="price">
   <div class="sec-head">
     <h2>দাম</h2>
-    <span class="mono">Pricing · ex-GST</span>
+    <span class="mono">Pricing · ex-GST · SMS included</span>
   </div>
+  <p style="max-width:70ch;color:var(--dim);margin:0 0 18px">আপনার চেম্বার কেমন — এক ডাক্তারের একটা ঘর, এক ডাক্তারের তিন জায়গা, নাকি এক ক্লিনিকে একসাথে কয়েকজন ডাক্তার? তিনটার জন্য তিনটে আলাদা প্ল্যান।</p>
   <table class="price-table">
     <thead>
       <tr><th>প্ল্যান</th><th>কী থাকে</th><th>GST ছাড়া</th><th>GST সহ (১৮%)</th></tr>
     </thead>
     <tbody>
       <tr class="hot">
-        <td class="plan">ফাউন্ডিং অফার<small>প্রথম ২০টি ক্লিনিক, ৩ মাস</small></td>
-        <td>বেসিকের সবকিছু · সেটআপ ফ্রি · দিনে মাত্র ₹10</td>
-        <td class="num">₹299 /মাস</td>
-        <td class="num">₹352.82</td>
+        <td class="plan">ফাউন্ডিং অফার<small>প্রথম ১০টি ক্লিনিক, ৩ মাস</small></td>
+        <td>বেসিকের সবকিছু · সেটআপ ফ্রি · দিনে মাত্র ₹20</td>
+        <td class="num">₹599 /মাস</td>
+        <td class="num">₹707</td>
       </tr>
       <tr>
         <td class="plan">বেসিক<small>একজন ডাক্তার, একটি চেম্বার</small></td>
-        <td>টোকেন কিউ, ওয়েটিং রুমের টিভি স্ক্রিন, ফলো-আপ রিমাইন্ডার, প্রেসক্রিপশন</td>
-        <td class="num">₹599 /মাস</td>
-        <td class="num">₹706.82</td>
+        <td>টোকেন কিউ, ওয়েটিং রুমের টিভি স্ক্রিন, ফলো-আপ রিমাইন্ডার, প্রেসক্রিপশন, <b>মাসে ১,০০০ SMS অন্তর্ভুক্ত</b></td>
+        <td class="num">₹999 /মাস</td>
+        <td class="num">₹1,179</td>
       </tr>
       <tr>
         <td class="plan">প্রো<small>একজন ডাক্তার, ৩টি চেম্বার</small></td>
-        <td>একটাই লাইন, তিন জায়গা থেকে · পুরো হিসাব</td>
-        <td class="num">₹1,299 /মাস</td>
-        <td class="num">₹1,532.82</td>
+        <td>একটাই লাইন, তিন জায়গা থেকে · পুরো হিসাব · <b>মাসে ৩,০০০ SMS অন্তর্ভুক্ত</b></td>
+        <td class="num">₹1,999 /মাস</td>
+        <td class="num">₹2,359</td>
       </tr>
       <tr>
-        <td class="plan">মিসড কল + SMS<small>ঐচ্ছিক অ্যাড-অন</small></td>
-        <td>মিসড-কল নম্বর + ১,০০০ টোকেন SMS</td>
-        <td class="num">+₹499 /মাস</td>
-        <td class="num">₹588.82</td>
+        <td class="plan">পলি-ক্লিনিক<small>একটি ক্লিনিকে ৫ জন ডাক্তার পর্যন্ত</small></td>
+        <td>একটাই কিউ, একটাই টিভি স্ক্রিন, সব ডাক্তারের আলাদা টোকেন নম্বর · <b>মাসে ৫,০০০ SMS অন্তর্ভুক্ত</b></td>
+        <td class="num">₹2,999 /মাস</td>
+        <td class="num">₹3,539</td>
+      </tr>
+      <tr>
+        <td class="plan">মিসড-কল নম্বর<small>ঐচ্ছিক · SMS ইতিমধ্যেই সব প্ল্যানে আছে</small></td>
+        <td>আপনার ক্লিনিকের নিজের মিসড-কল নম্বর — রোগী ওই নম্বরে ফোন করলেই টোকেন</td>
+        <td class="num">+₹399 /মাস</td>
+        <td class="num">₹471</td>
       </tr>
       <tr>
         <td class="plan">বাৎসরিক (বেসিক)<small>১০ মাসের দামে ১২ মাস</small></td>
-        <td>একবারে এক বছরের পেমেন্ট</td>
-        <td class="num">₹5,990 /বছর</td>
-        <td class="num">₹7,068.20</td>
+        <td>একবারে এক বছরের পেমেন্ট · বছরে ১২,০০০ SMS</td>
+        <td class="num">₹9,990 /বছর</td>
+        <td class="num">₹11,789</td>
       </tr>
     </tbody>
   </table>
   <div class="price-note">
-    <span>প্রথম ৭ দিন একদম ফ্রি — কার্ড বা অগ্রিম লাগে না।</span>
+    <span><b>অতিরিক্ত SMS:</b> বেসিকে মাসে ১,০০০ ও প্রো-তে ৩,০০০ SMS অন্তর্ভুক্ত। তার বেশি লাগলে প্রতি ১,০০০ SMS ₹199 (GST সহ ₹235)।</span>
+    <span><b>৭ দিনের ফ্রি ট্রায়াল</b> আগে — কার্ড বা অগ্রিম লাগে না। তারপর ফাউন্ডিং অফার ₹599 তিন মাস, বা বেসিক ₹999।</span>
     <span>মাসিক প্ল্যান, কোনো লক-ইন নেই।</span>
     <span>GSTIN থাকলে ১৮% GST ইনপুট ক্রেডিট হিসেবে ফেরত পাওয়া যায়।</span>
   </div>
@@ -425,7 +442,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
         </div>
         <div class="contact-line">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div><b>মহম্মদপুর, মুর্শিদাবাদ</b><small>পশ্চিমবঙ্গ · পিন ৭৪২১২১</small></div>
+          <div><b>বেরহামপুর, মুর্শিদাবাদ</b><small>পশ্চিমবঙ্গ ৭৪২১০১</small></div>
         </div>
       </div>
     </div>
@@ -450,9 +467,9 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
   </div>
 
   <div class="policy" id="terms">
-    <span class="updated">সর্বশেষ হালনাগাদ · ২৪ নভেম্বর ২০২৬</span>
+    <span class="updated">সর্বশেষ হালনাগাদ · ২৮ নভেম্বর ২০২৬</span>
     <h3>ব্যবহারের শর্তাবলী</h3>
-    <p>ClinicQ একটি টোকেন ও লাইভ লাইন ব্যবস্থাপনা সেবা, যা Kazi Parvez Anjum (prop. ClinicQ) পরিচালনা করেন — মহম্মদপুর, মুর্শিদাবাদ থেকে। এই সেবা দুই ধরনের ব্যবহারকারীর জন্য — ক্লিনিক (ডাক্তার, রিসেপশন ও স্টাফ) এবং রোগী, যিনি QR বা লিঙ্কে টোকেন নেন।</p>
+    <p>ClinicQ একটি টোকেন ও লাইভ লাইন ব্যবস্থাপনা সেবা, যা Kazi Parvez Anjum (prop. ClinicQ) পরিচালনা করেন — বেরহামপুর, মুর্শিদাবাদ থেকে। এই সেবা দুই ধরনের ব্যবহারকারীর জন্য — ক্লিনিক (ডাক্তার, রিসেপশন ও স্টাফ) এবং রোগী, যিনি QR বা লিঙ্কে টোকেন নেন।</p>
     <ul>
       <li>ClinicQ চিকিৎসা সেবা দেয় না, কোনো পরামর্শ দেয় না, এবং ডাক্তারবাবুর ক্লিনিক্যাল সিদ্ধান্তের বিকল্প নয়।</li>
       <li>ক্লিনিক অ্যাকাউন্ট খুললে ক্লিনিক নিজের লগইন ও পাসওয়ার্ড সুরক্ষিত রাখবেন। ক্লিনিকের হয়ে তৈরি রোগীর তথ্যের দায়িত্ব ক্লিনিকের।</li>
@@ -460,11 +477,11 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
       <li>সেবার ব্যবহারে কোনো বেআইনি কাজ, ভুয়া টোকেন বা অন্য রোগীর তথ্য দেখা নিষিদ্ধ।</li>
       <li>ClinicQ আগাম নোটিশ দিয়ে সেবার ফিচার বা দাম বদলাতে পারে। চলতি মাসের জন্য আগের দামই প্রযোজ্য।</li>
     </ul>
-    <p>বিল ও ইনভয়েস জারি করে <b>Kazi Parvez Anjum</b>, prop. ClinicQ, মহম্মদপুর, মুর্শিদাবাদ, পশ্চিমবঙ্গ ৭৪২১২১ · GSTIN 19AQNPA1807A1ZD।</p>
+    <p>বিল ও ইনভয়েস জারি করে <b>Kazi Parvez Anjum</b>, prop. ClinicQ, বেরহামপুর, মুর্শিদাবাদ, পশ্চিমবঙ্গ · GSTIN 19AQNPA1807A1ZD।</p>
   </div>
 
   <div class="policy" id="privacy">
-    <span class="updated">সর্বশেষ হালনাগাদ · ২৪ নভেম্বর ২০২৬</span>
+    <span class="updated">সর্বশেষ হালনাগাদ · ২৮ নভেম্বর ২০২৬</span>
     <h3>গোপনীয়তা নীতি</h3>
     <p>রোগীর তথ্য ক্লিনিকের, আমাদের নয়। আমরা যা সংগ্রহ করি:</p>
     <ul>
@@ -476,7 +493,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
   </div>
 
   <div class="policy" id="refund">
-    <span class="updated">সর্বশেষ হালনাগাদ · ২৪ নভেম্বর ২০২৬</span>
+    <span class="updated">সর্বশেষ হালনাগাদ · ২৮ নভেম্বর ২০২৬</span>
     <h3>বাতিল ও ফেরত নীতি</h3>
     <ul>
       <li><b>৭ দিনের ফ্রি ট্রায়াল:</b> এই সময়ে কোনো টাকা কাটা হয় না। কার্ড বা অগ্রিম লাগে না।</li>
@@ -495,7 +512,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px;margin-top:20px}
   <div class="wrap foot">
     <div>
       <b style="font-family:var(--font-head);font-size:18px;color:var(--brand)">ClinicQ</b><br>
-      মহম্মদপুর, মুর্শিদাবাদ, পশ্চিমবঙ্গ ৭৪২১২১ · hello@clinicqindia.com · +91 96473 60882<br>
+      বেরহামপুর, মুর্শিদাবাদ, পশ্চিমবঙ্গ · hello@clinicqindia.com · +91 96473 60882<br>
       Kazi Parvez Anjum, prop. ClinicQ<br>
       <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.04em">GSTIN 19AQNPA1807A1ZD</span>
     </div>
